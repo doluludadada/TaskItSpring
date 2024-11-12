@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 定義 POM 模型的版本，這裡是 Maven 的 4.0.0 版本 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 專案的父專案，這裡指定 Spring Boot 的父專案，繼承其版本管理和預設設定 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/> <!-- 從倉庫中查找父專案 -->
+    </parent>
+
+    <!-- 專案的唯一標識符 -->
+    <groupId>org.gu</groupId>
+    <artifactId>backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>backend</name>
+    <description>backend</description>
+
+    <!-- 這裡可以填寫專案的網址 (選填) -->
+    <url/>
+
+    <!-- 授權協議 (選填) -->
+    <licenses>
+        <license/>
+    </licenses>
+
+    <!-- 開發者資訊 (選填) -->
+    <developers>
+        <developer/>
+    </developers>
+
+    <!-- 專案的版本控制資訊 (選填) -->
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+
+    <!-- 自訂屬性 -->
+    <properties>
+        <!-- 設定專案使用的 Java 版本 -->
+        <java.version>17</java.version>
+    </properties>
+
+    <!-- 專案所需的依賴庫 -->
+    <dependencies>
+        <!-- Spring Web Starter，用於構建 Web 應用程式，提供 MVC 支援 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Security，提供安全性框架，用於身份驗證和授權 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- Spring Data JPA，提供 JPA 支援，用於操作資料庫 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Spring Validation，提供資料驗證功能 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- Spring Boot 開發工具，支援快速重載功能，便於開發和調試 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- MySQL JDBC 驅動程式，連接 MySQL 資料庫 -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Lombok，簡化 Java 程式碼的工具，支援自動生成 Getter/Setter 等方法 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Spring Boot 測試工具，包含 JUnit、Mockito 等，用於測試應用程式 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JWT Support -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+        <!-- Spring Security 測試依賴，用於測試安全性功能 -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- 構建設定 -->
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven 插件，用於打包專案成可執行的 JAR 文件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 排除依賴，這裡將 Lombok 排除在打包範圍之外 -->
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
